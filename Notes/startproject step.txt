@@ -1,0 +1,43 @@
+
+"Create new React App"       command
+
+1)  npx create-react-app <name_of_folder>   
+
+once it gather there requirement  to start the app follow below steps....
+
+
+once change folder to ---->   cd .\LearningReactWithHarry\
+
+we need to type in terminal "npm start"
+
+
+or from same folder  cd .\LearningReact\reactapp
+
+we need to type in terminal "npm start server "
+
+--------------------------------------------------------------------------------
+
+
+
+
+new way to "Create new React App"       se below
+
+        "npm create vite@latest"
+
+it ask project name -        Give name in small letters
+
+choose frame work  -         React
+
+choose framework template -  javascript
+
+Then go by given instructions there
+
+cd <"name of folder">
+
+to run project           "npm run dev"
+
+
+
+
+
+

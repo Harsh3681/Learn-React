@@ -1,0 +1,28 @@
+
+
+component in react is a function or class that optionally accepts input and returns a react element that describes how a section of the ui should appear.
+
+it is an code in the jsx file that is used to create the ui of the application.
+
+it is a function that returns a react element.
+
+There Are 2 types of components in react
+1) stateless component --> is a function that returns a react element. Ex - function component and arrow function component
+ 
+Ex ---> 
+fuction greed(props){
+    return <h1>hello world</h1>
+}
+
+2) "stateful component" --> is a class that extends react.
+it is an regular ES6 class that extends react library and has a render method that returns a react element. it is also called as class. Ex - class component
+component and returns a react element.
+
+Ex --->
+class Greed extends React.Component{
+    render(){
+        return <h1>hello world</h1>
+    }
+}
+
+difference between above 2 example is that in stateless component we are using function and in stateful component we are using class.  in stateless component we are not using this keyword and in stateful component we are using this keyword.
