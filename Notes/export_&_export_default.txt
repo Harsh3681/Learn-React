@@ -1,0 +1,37 @@
+
+1st way when we need to make that component as "default one"
+
+// export default function MyButton(){      // we can also use export default like this 
+    return <button>Click Me</button>
+}
+
+export default MyButton;    // or this way also possible.
+
+---------------------------------------------------------------
+
+2nd way when we need to "export" multiple components
+
+export function MyButton(){      // we can also use export  like this 
+    return <button>Click Me</button>
+}
+
+export function YouFunction(){      // we can also use export  like this 
+    return <button>Click Me</button>
+}
+
+--------- at time of "import" we need to import it as {MyButton, YouFunction} from <./nameofFile_Or_folder>
+
+---------------------------------------------------------------
+
+3rd way when we need to use "export" as well as "export default"
+
+export function MyButton(){      // export
+    return <button>Click Me</button>
+}
+
+export default function YouFunction(){      // export default
+    return <button>Click Me</button>
+}
+
+--------- at time of "import" we need to import it as {MyButton, YouFunction} from <./nameofFile_Or_folder>
+

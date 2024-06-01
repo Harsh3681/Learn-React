@@ -1,0 +1,17 @@
+
+
+The file name Always Start with Capital "Letter"
+
+Ex.         App or Trybutton etc etc
+
+Always "prefered cammel case."
+
+------------------------------------------------------
+
+Same for function decleared in "jsx" file
+Always "prefered cammel case."
+
+Always Start with Capital "Letter"  
+
+Ex.         Myapp  Myfunction etc etc
+
