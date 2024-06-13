@@ -2,3 +2,6 @@
 
 
 rconst  <----- to create "constructer"
+rfc <-- react fuction base component
+impt <--- import PropTypes
+pts <---- PropTypes.string

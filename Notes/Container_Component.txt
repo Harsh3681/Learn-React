@@ -1,0 +1,23 @@
+
+
+
+in 2expence-management project in Components we make 
+"Container" Component which will take an there own define CSS 
+i.e "Container.module.css"
+
+we use this "Container" Component as in our App.js folder instead of "Fragments"
+or along with fragments <></>
+
+this will helpful to make our code more crisp and clear.
+
+here main use of such Container is that if we want to create certain "Cards" "Post"
+in project and we are dynamically change our contain inside that Cards and all
+in such cases this will very helpful for us because the only 
+
+inner sections,content will change and outer things we will keept same
+means inside "Container" we can place it because of "props.children" we can access
+children means any content, tag, component places in "Container Component" directly 
+and our "Container" section remains same for all "Cards" "Post" and alll... easy
+
+
+

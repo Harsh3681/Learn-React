@@ -1,0 +1,22 @@
+
+Double curly braces {{ }} mostly used for
+######## "CSS" ######## give to jsx component
+
+<div style={{"backgroundColor":"yellow"}}>
+
+like this
+
+---------------------------------------------------
+And for the ###### "Object" ######
+
+<Avatar
+      person={{ name: 'Lin Lanying', imageId: '1bX5QH6' }}
+      size={100}
+/>
+
+here "Avatar" is component and person is an object "Whose Properties pass in "Curly Braces"
+
+
+
+
+

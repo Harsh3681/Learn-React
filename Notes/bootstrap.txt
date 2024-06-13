@@ -1,0 +1,7 @@
+
+
+install by ---> npm install bootstrap@5.3.3
+
+then add css file to "main.jsx"  ---->  import "bootstrap/dist/css/bootstrap.min.css"
+
+
