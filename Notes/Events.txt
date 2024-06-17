@@ -1,0 +1,22 @@
+ 
+
+
+We can pass events on button 
+1) we need to use "Cammel Case" text like ----> onClick = {here name of function}
+
+2) we need to define specific function for "Events" to perform certain operation and
+need to pass into curly barces;
+
+3) Ex. for onClick event in "expense project "ProductInput.jsx" file i creare an 
+"getItem" function which will help me to return the user input.
+
+4) we can add "event" obj also along with "Events"
+ex.
+
+    onClick = {(e) => name_Of_funct(e)} can return this "e" object from function
+
+const name_Of_funct = (e) =>{
+    consol.log(e);
+}
+
+

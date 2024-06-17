@@ -1,0 +1,38 @@
+
+
+
+1) As well as any other function starting with “use”, is called a Hook.
+
+2) hook canot use with "Normal JS" it only possible to use with "Other Components"
+
+3) The "useState Hook" provides those two things:
+
+    i) A "state variable" to retain the data between renders.
+    ii) A "state setter function" to update the variable and trigger React to render the component again.
+
+###### NOTE ######
+
+When you call useState, you are telling React that you want this component to "remember something":
+
+const [index, setIndex] = useState(0);
+
+NOTE --> name this pair [index, setIndex] You could name it anything you like
+
+-------------------------------------------------------------------------
+
+###### component multiple state variables ###### Yes it's possible
+EX.
+
+    const [index, setIndex] = useState(0);
+    const [showMore, setShowMore] = useState(false);
+
+This component has two state variables, a number index and a boolean showMore
+
+-------------------------------------------------------------------------
+
+###### State is isolated and private ######
+you render the same component twice, each copy will have completely isolated state! 
+"Changing one of them will not affect the other".
+
+
+

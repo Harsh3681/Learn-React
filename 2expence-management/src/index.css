@@ -21,3 +21,7 @@
   min-height: 100vh;
 } */
 
+input{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}
