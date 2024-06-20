@@ -19,4 +19,4 @@ const UserInputRow = ({ index, formData }) => {
     );
   };
 
-export default UserInputRow;
+export default UserInputRow;  // use this Component in "ExpenceTable" 

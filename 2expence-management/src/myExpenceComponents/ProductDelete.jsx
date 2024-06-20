@@ -26,7 +26,7 @@ function MyProductDelete(){
       const deleteId = document.querySelector("#exampleFormControlInput3");
       const id = (deleteId.value)-1;
       localStorage.removeItem(localStorage.key((id)));
-      window.location.reload();
+      // window.location.reload();
     }
 
 

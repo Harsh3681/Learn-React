@@ -13,21 +13,31 @@ export const MyProductInput = ({ getItem, handleFormSubmitData}) => {
 
   // -------------------------------------------------------------------------------
 
- 
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    var told = false;
  
     const formData = getItem(e);    {/* Here "getItem" is funct we get from the "Parent" itself i.e App.js communcation happen betwwenn parent and child */}
     console.log('Form Data:', formData);
+    
+    if(localStorage.getItem(formData.productName)){
+        told=true;
+        const previousProductAmount =localStorage.getItem(formData.productName);
+        localStorage.setItem(formData.productName, (Number)(previousProductAmount) + (Number)(formData.productAmount));
+    }
+    else{
+        localStorage.setItem(formData.productName, formData.productAmount);
+    }
+    
 
-    localStorage.setItem(formData.productName, formData.productAmount);
+
+    // localStorage.setItem(formData.productName, formData.productAmount);
 
     handleFormSubmitData(formData);
-
-    document.getElementById("exampleFormControlInput1").value="";   // this to clear textfield (input) once click submit
-    document.getElementById("exampleFormControlInput2").value="";
-
+    window.location.reload();
+    // document.getElementById("exampleFormControlInput1").value="";   // this to clear textfield (input) once click submit
+    // document.getElementById("exampleFormControlInput2").value="";
 
   };
   

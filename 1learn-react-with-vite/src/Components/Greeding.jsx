@@ -22,7 +22,7 @@ function Mygreeding(){
 {/* Other way to add Modular Css */}
 
             <hr /> <br />
-            <h1 className={`${Mystyles.hello_Der} `}  >I am Modular Css</h1>
+            <h1 className={`${Mystyles.hello_Der} ml-2 `}>I am Modular Css</h1>    {/* Here we can add extra class like ml-2 along with modular define classes */}
             <p className={`${Mystyles.jay_ho}`}>Kese Ho !!</p>
             <pre className={`${Mystyles.namste}`}>Gretting From {fullName()}</pre>
             <hr />

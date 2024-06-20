@@ -11,6 +11,8 @@ import "./App.css";
 
 function App() {
   
+  const [isTableVisible, setIsTableVisible] = useState(true);
+
   // localStorage.clear();
   const [formDataList, setFormDataList] = useState([]);
 
@@ -43,6 +45,14 @@ function App() {
     console.log('Received data in App:', mydata);
   };
 
+
+
+  const toggleTableVisibility = () => {
+    setIsTableVisible(!isTableVisible);
+  };
+
+
+
   return (
     <>
       <Container >
@@ -57,12 +67,11 @@ function App() {
 
           <MyProductDelete />
 
-          <ShowMyExpenceTable />
+          <ShowMyExpenceTable toggleTableVisibility={toggleTableVisibility} isTableVisible={isTableVisible} />
 
           {
-            localStorage.length!==0 && <MyExpenceTable formDataList={formDataList} />
+            (isTableVisible) && localStorage.length!==0 && <MyExpenceTable formDataList={formDataList}/>
           }
-          
       </Container>
 
       

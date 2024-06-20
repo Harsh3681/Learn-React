@@ -2,10 +2,19 @@
 import UserInputRow from "./UserInput";
 
 function MyExpenceTable({formDataList}){
+    
+    const TotalSum = () =>{
+        var sum=0;
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            const value = localStorage.getItem(key);
+            sum+=Number(value);
+        }   
+        return sum;
+    }
     return(
         <>
-    
-            <div className="container">
+            <div className="container mt-5">
                 <h1>Your Expences</h1>
                 <table className="table table-bordered table-hover for-expence">  
                     
@@ -27,9 +36,10 @@ function MyExpenceTable({formDataList}){
 
                         <tr className="table-dark">
                             <td id="total-id"><b>Total</b></td>
-                            <td id="total-prod"><b></b></td>
-                            <td id="total-amount"><b></b></td>
+                            <td id="total-prod"><b>{formDataList.length}</b></td>
+                            <td id="total-amount"><b>{TotalSum()}</b></td>
                         </tr>
+
                     </tbody>
 
                 </table>
@@ -41,5 +51,5 @@ function MyExpenceTable({formDataList}){
     )
 }
 
-export default MyExpenceTable;
+export default MyExpenceTable;  // use this Component in "App.jsx"
 
