@@ -6,7 +6,7 @@ const PrintToItem = ({getToData,HandleDelete})=>{
         <>
             <div>
                 {getToData.map(item =>
-                    <TodoList key={item} ItemName={item.name} SubmitedDate={item.DueDate} HandleDelete={HandleDelete} ></TodoList>
+                    <TodoList key={item.name} ItemName={item.name} SubmitedDate={item.DueDate} HandleDelete={HandleDelete} ></TodoList>
                 )}
             </div>
         </>

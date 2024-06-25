@@ -1,0 +1,11 @@
+
+
+useRef allow DOM ele & retains "mutable values" without re-rendering.
+we can use it with "ref" attribute helps to direct interact with DOM
+
+Also hold "previous State" or "props Value"
+
+it can hold "any value"
+
+#### Refs can pass as "props" Also
+

@@ -1,0 +1,5 @@
+
+
+Context API is common sharing storage among different Components.
+
+

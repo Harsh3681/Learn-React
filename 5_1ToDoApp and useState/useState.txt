@@ -1,0 +1,5 @@
+
+
+Use state we use in inputArea.jsx file
+
+which will re-rendering overall file just because if small update by user in App. like put input ex...

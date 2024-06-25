@@ -1,0 +1,28 @@
+
+
+###### Context API ###### we used here when
+we are using it when our "state" is common between "multiple Components"
+
+But 
+
+###### "useReducer" ###### <---- 1) use when we wan't to "update" and "Maintain" our "State" for "complex state logic"
+2) It is an "Advance version of "useState"
+
+we did "useReducer" in "App.jsx"
+
+   // syntax of "useReducer"
+  // const [state, dispatch] = useReducer(reducer, initialState)
+
+"Reducer" --> is "Pure Function" tale "current State" and "Action" and --> return "new State"
+"Action" ---> is "Obj" which discribing "what happend"
+
+########## Here Cycle Goes like ##########
+
+1) <Component /> i.e (EventHandler) --> 2) Dispatcher ---> 3) Reducer user Created Function i.e Pure Function ----> 4) State --> 1) Again <Component /> i.e (EventHandler) $$$$ Same loop $$$$
+
+
+
+
+
+
+

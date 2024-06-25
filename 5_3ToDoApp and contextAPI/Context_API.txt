@@ -1,0 +1,36 @@
+
+
+### Disadvantage ### of "Context API" is 
+1) when Value Change in "Context API" i.e store full App get "Re-render"
+
+Context_API maily used to take any general value and make it avaiable everywhere in the codeBase
+
+and ###### "Context_API Provider" ###### was done the task of place that object i.e genaral value in General Space.
+
+And That "general value" can be anything Method, const, value, anything we need to handle it as per our requirment.
+
+######### NOTE #########
+
+Here In this project we use Context API as replacement of the "props"
+means see in  "PrintTOItem" earlier files we pass the "getToData" as an "props" from 
+App.js parent component for rendering the use input put values like todo text and date
+
+but now
+we use "<TodoItemsByContext.Provider value={getToData}>" instead of that and pass "getToData" <-- which managed with "useState"
+pass that "Data" to the "ContextAPI" store we created. 
+i.e "TodoItemsByContext" and "Provider" is build in method to store that data to that file .
+
+and instead of using "props" the components who wann use that data the can "take" it from the 
+"TodoItemsByContext" store by creating ---> "const getToData = useContext(TodoItemsByContext);"
+and use it.
+
+now we don;t need to pass "props" to child to access data. store data directly in context store those who want to access it can access via like --> const getToData = useContext(TodoItemsByContext); <----- this 
+
+
+
+
+
+
+
+
+
