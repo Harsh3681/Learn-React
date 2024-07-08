@@ -1,0 +1,21 @@
+
+
+We use "useEffect" in "PostList" file.
+
+
+UseEffect nothing but "Funct Base" Component
+help for 
+1) Data Fetching or event Listining And it run automatically on every "render"
+
+2) By providing "Dependency Array" --> [] , "UseEffect" will runs when specific Variable is changing.
+"Empty Array" --> [] means ---> "Effect Runs only once (1)"
+
+// ""Dependency Array"" means here inside that array [] we can give the "props" "state" "funct" anything, whenever there value change our "useEffect" will re-render 
+
+3) We can use "Multiple Effect Hooks" in single Component
+
+4) UseEffect also return 1 method at it's end to "Clear the Intervals"
+    when our Component got dead i.e we calling to any "network" or setting "Interval" at that time we can call
+     return () =>{ clearInterval(myTime) } <--- can do like this
+
+

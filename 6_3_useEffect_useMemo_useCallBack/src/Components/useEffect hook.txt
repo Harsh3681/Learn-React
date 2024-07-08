@@ -1,0 +1,67 @@
+
+
+The useEffect Hook allows you to perform side effects in your components.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect accepts two arguments. The second argument is optional.
+
+  ######## useEffect(function, [dependency]) ########
+
+  <function> means () => {}
+  <dependency> means  [] empty array <--- this 2nd argument is optional,
+  we can pass anything inside [] dependency array props, state, method which will change over period of time and re-render the useEffect Hook
+
+i.e
+  1)   useEffect(() => {});             // run after every re-rendering
+  2)   useEffect(() => {}, []);         // run only on Mount (single time)
+  3)   useEffect(() => {}, [value] );   // run on value change
+
+##### USES #####
+#1)   for Event Listeners
+#2)   DOM Manipulation
+#3)   Subscriptions (Real-time Update)
+#4)   Fetching Data From API
+#5)   CleanUp Component remove - Or- Insert Component
+
+
+Ex. 1
+
+function Timer() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+  },[]);
+
+  return <h1>I've rendered {count} times!</h1>;
+}
+
+//-------------------------------------------------------
+
+EX. 2
+
+Here is an example of a useEffect Hook that is dependent on a variable. If the count variable updates, the effect will run again:
+
+import { useState, useEffect } from "react";
+import ReactDOM from "react-dom/client";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [calculation, setCalculation] = useState(0);
+
+  useEffect(() => {
+    setCalculation(() => count * 2);
+  }, [count]); // <- add the count variable here
+
+  return (
+    <>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount((c) => c + 1)}>+</button>
+      <p>Calculation: {calculation}</p>
+    </>
+  );
+}
+

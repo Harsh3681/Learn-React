@@ -1,0 +1,38 @@
+
+
+The React useMemo Hook returns a "memoized value".
+
+ ###### NOTE ######
+
+The useMemo Hook only "runs" when "one of its dependencies update".
+
+ ###### NOTE ######
+
+The "useCallback" and "useMemo" Hooks are similar. 
+The main ###### difference ###### is that 
+1) "useMemo returns"--> a "memoized value" 
+2) "useCallback returns" -->  a "memoized function"
+
+To fix this performance issue, we can use the useMemo Hook to memoize the "expensiveCalculation function".
+This will cause the function to only run when needed.
+
+We can wrap the expensive function call with useMemo.
+
+The useMemoHook accepts a second parameter to declare dependencies and "expensive function" will only run when its "dependencies have changed."
+
+
+EX.----------------------------
+When we have an large array from API and we need to sorted it only when array value will change.
+In such cases we can use the "useMemo" Hook
+If we not use it then in such cases Array will be sorted on each rendering of the Application due to small changes in Applications.
+
+const arr = [3,2,5,8,31]
+const ans = arr.sort();  // <----- without "useMemo" array will get sorted each rendering.
+
+const ans = useMemo(() => arr.sort() , []);  // "useMemo" take 2 argument <function> and <dependency array>
+
+
+
+
+
+

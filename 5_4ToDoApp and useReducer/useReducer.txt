@@ -8,7 +8,7 @@ But
 ###### "useReducer" ###### <---- 1) use when we wan't to "update" and "Maintain" our "State" for "complex state logic"
 2) It is an "Advance version of "useState"
 
-we did "useReducer" in "App.jsx"
+we did "useReducer" in "Store Folder files"
 
    // syntax of "useReducer"
   // const [state, dispatch] = useReducer(reducer, initialState)

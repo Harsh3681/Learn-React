@@ -1,0 +1,29 @@
+
+
+Context API is common sharing storage among different Components.
+
+
+1) 1st we decleared an 
+    const PostList =  createContext({        // it is basically simple api structure, methods and all structure we declred there.
+
+                      })
+
+2) 2nd we create our Normal Component. and take props name as children {children} <--- which is from App.jsx
+    and this normal Component will return via object created by 1st step i.e "PostList" and  value={{ }} <--- we must need there see below
+
+const MyPostComponent = ({children}) =>{
+    return <PostList.Provider  value={{ }} > {children} </PostList.Provider>
+};
+
+export default MyPostComponent;
+
+3) IN 3rd step we need to create  "useReducer" to handle "multiple states"
+
+const [getPost, dispatchUserPost] = useReducer(UserPostReducer, []);  // <---- "useReducer" 1st argument is one funct and 2nd is default value i.e mostly [] <-- 
+
+And "UserPostReducer" <----- is funct which we define outside our "Normal Component" i.e "MyPostComponent"
+
+4) How we define it after decleared see 👇
+const UserPostReducer = (currStateOfPost, action) =>{   // also take 2 argument 1st "currentState" 2nd "Action" need to perform
+
+}

@@ -1,0 +1,15 @@
+
+
+install it first 
+
+1)  npm install react-router-dom     // dom becz web page package it is
+
+2)  In  ####### main.jsx ######## we need to import --->👉 import RouterProvider from "react-router-dom" 
+
+3) And use <RouterProvider/> Component Instead Of "<App/>"
+
+4) Also import #### createBrowserRouter() ####  --->👉 from "react-router-dom"
+    createBrowserRouter will take "array of Object" [{}] which include "individual object" {} containing path : "/" and element : <App/> <-- 👈 it is exam
+
+
+

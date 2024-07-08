@@ -1,0 +1,25 @@
+
+
+
+The React "useCallback" Hook returns a memoized callback function.
+It is an Another version of "useEffect" hook.
+
+"useCallback" use with "useEffect" mainly to avoid the function to stuck into the "Recursion" call. OR
+prevent function form un-necessary re-rendering.
+
+Allows us to isolate "resource intensive functions" so that they will "not" "automatically run" on every render.
+
+
+ ###### NOTE ######
+
+The useCallback Hook only runs when "one of its dependencies update".
+
+ ###### NOTE ######
+
+The "useCallback" and "useMemo" Hooks are similar. 
+The main difference is that "useMemo returns"--> a "memoized value" 
+and "useCallback returns" -->  a "memoized function"
+
+####### Why use "useCallback"
+
+"prevent" a component from "re-rendering" unless its "props" have changed.
