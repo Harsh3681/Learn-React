@@ -1,10 +1,10 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer, useState } from "react";
 
 
 export const UserPostsByContext = createContext({
     PostList : [], 
     CreatePost : () => {},  
-    CreatePostByFetchingData : () => {},
+    fetching : false,
     DeletePost : () => {},
 });  
 
@@ -31,35 +31,26 @@ const UserPostReducer = (currStateOfPost, action) =>{
 const SocialAppContextProvider = ({children}) =>{
   
   const [getPost, dispatchUserPost] = useReducer(UserPostReducer,[] );
-  
-    const CreatePost = (userId, postTitle,postDescription,postTag,postReactions) =>{
-      // userIdData,PostTitleData,PostDescriptionData,PostTagData,PostReactionData
+  const [fetching, setFetching] = useState(false);    // this is for loadingUI
+    
+    const CreatePost = (posts) =>{
       const newItemAction = {       
         type : "CREATE_POST",  
-        payload : {
-            id : Date.now(),
-            // userId : userId,
-            title : postTitle,
-            body : postDescription,
-            tags : postTag,
-            reactions : postReactions,
-        }
-      };
-      dispatchUserPost(newItemAction);
-      // console.log(`PostId  ${userId}, ${postTitle}, ${postDescription}, ${postTag}, ${postReactions}`);
+        payload : posts
+    };
+    dispatchUserPost(newItemAction);
     }
+
 
     const CreatePostByFetchingData = (posts) =>{
       dispatchUserPost({       
         type : "CREATE_POST_By_Fetching_Data",  
         payload : {posts}
       });
-      
     }
     
 
     const DeletePost = (postId) =>{
-      
       const DeleteItemAction = {      
         type : "DELETE_POST",  
         payload : {
@@ -69,13 +60,34 @@ const SocialAppContextProvider = ({children}) =>{
       dispatchUserPost(DeleteItemAction);
       // console.log(`PostId  ${postId}`);
     }
+
+    // --------
+
+    useEffect(()=>{
+      setFetching(true)
+      const myController = new AbortController();
+      const mySignal = myController.signal;
+
+      fetch('https://dummyjson.com/posts',{mySignal})
+      .then(res => res.json())
+      .then((data)=>{
+          CreatePostByFetchingData(data.posts);
+          setFetching(false);
+          
+      });
+      return () =>{
+          myController.abort();
+      }
+    },[])
+
+
     
     return(
       <>
         <UserPostsByContext.Provider value={{
           PostList : getPost, // here "getToDoData" is from --> const [getToDoData, dispatchToDOData] = useReducer(toDoItemReducer, []);
           CreatePost : CreatePost,
-          CreatePostByFetchingData:CreatePostByFetchingData,
+          fetching : fetching,
           DeletePost : DeletePost
         }}>
         {children}    {/* Here we render our children i.e form App.jsx file ele present in <MyTodoItemsContextProvider /> Component*/}

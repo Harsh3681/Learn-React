@@ -24,7 +24,7 @@ new way to "Create new React App"       se below
 
         "npm create vite@latest"
 
-it ask project name -        Give name in small letters
+it ask project name -         Give name in small letters
 
 choose frame work  -         React
 

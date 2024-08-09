@@ -18,6 +18,11 @@ const MyuseEffect = () =>{
     // },[])
 // ----------------------------------------------
 
+    // useEffect(()=>{         // "With" dependency Array []
+    //     document.title = `Count = ${count} = ${myColor}`
+    // },[myColor])
+// ----------------------------------------------
+
     // useEffect(()=>{         // "With" dependency Array + value [count]
     //     document.title = `Count = ${count} = ${myColor}`
     // },[count])
@@ -51,6 +56,7 @@ const MyuseEffect = () =>{
 }
 
 export default MyuseEffect;
+
 
 
 

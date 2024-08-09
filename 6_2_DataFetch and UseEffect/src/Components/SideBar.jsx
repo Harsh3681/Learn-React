@@ -85,7 +85,7 @@ import React from 'react';
 
 const AppSideBar = ({ getActive, setActive }) => {
     return (
-        <div className="d-flex">
+        <div className="d-flex ">
             <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" 
                 style={{
                     "width": "180px", 
@@ -93,7 +93,7 @@ const AppSideBar = ({ getActive, setActive }) => {
                     "position": "fixed",
                     "top": "0",
                     "left": "0",
-                    "minHeight": "100vh"
+                    "minHeight": "100vh",
                 }}>
                 <a href="/" className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
                     <svg className="bi pe-none me-2" width="40" height="32"><use xlinkHref="#bootstrap"></use></svg>

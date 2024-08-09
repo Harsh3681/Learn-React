@@ -1,10 +1,12 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { createContext, useReducer } from "react";
 
 
 export const UserPostsByContext = createContext({
     PostList : [], 
     CreatePost : () => {},  
-    CreatePostByFetchingData : () => {},
+    fetching : false,
     DeletePost : () => {},
 });  
 
@@ -31,23 +33,16 @@ const UserPostReducer = (currStateOfPost, action) =>{
 const SocialAppContextProvider = ({children}) =>{
   
   const [getPost, dispatchUserPost] = useReducer(UserPostReducer,[] );
-  
-    const CreatePost = (userId, postTitle,postDescription,postTag,postReactions) =>{
-      // userIdData,PostTitleData,PostDescriptionData,PostTagData,PostReactionData
+  const [fetching, setFetching] = useState(false);    // this is for loadingUI
+   
+    const CreatePost = (posts) =>{
       const newItemAction = {       
         type : "CREATE_POST",  
-        payload : {
-            id : Date.now(),
-            // userId : userId,
-            title : postTitle,
-            body : postDescription,
-            tags : postTag,
-            reactions : postReactions,
-        }
-      };
-      dispatchUserPost(newItemAction);
-      // console.log(`PostId  ${userId}, ${postTitle}, ${postDescription}, ${postTag}, ${postReactions}`);
+        payload : posts
+    };
+    dispatchUserPost(newItemAction);
     }
+    
 
     const CreatePostByFetchingData = (posts) =>{
       dispatchUserPost({       
@@ -69,13 +64,32 @@ const SocialAppContextProvider = ({children}) =>{
       dispatchUserPost(DeleteItemAction);
       // console.log(`PostId  ${postId}`);
     }
+
+    // --------
+
+    useEffect(()=>{
+      setFetching(true)
+      const myController = new AbortController();
+      const mySignal = myController.signal;
+
+      fetch('https://dummyjson.com/posts',{mySignal})
+      .then(res => res.json())
+      .then((data)=>{
+          CreatePostByFetchingData(data.posts);
+          setFetching(false);
+          
+      });
+      return () =>{
+          myController.abort();
+      }
+    },[])
     
     return(
       <>
         <UserPostsByContext.Provider value={{
           PostList : getPost, // here "getToDoData" is from --> const [getToDoData, dispatchToDOData] = useReducer(toDoItemReducer, []);
           CreatePost : CreatePost,
-          CreatePostByFetchingData:CreatePostByFetchingData,
+          fetching : fetching,
           DeletePost : DeletePost
         }}>
         {children}    {/* Here we render our children i.e form App.jsx file ele present in <MyTodoItemsContextProvider /> Component*/}
@@ -85,25 +99,6 @@ const SocialAppContextProvider = ({children}) =>{
     )
 }
 
-const DEFAULT_POST = [
-    {
-    id:"1",
-    userId : "user_1",
-    postTitle:"Sunday",
-    postDescription: "I enjoy sunday!!!!!!!",
-    postTag : ["sunday","holiday"],
-    postReactions : 6,
-    },
-    {
-    id:"2",
-    userId : "user_2",
-    postTitle:"Working Day",
-    postDescription: "Not enjoy sunday!!!!!!!",
-    postTag : ["Work","NotHoliday", "Office"],
-    postReactions : 26,
-    },
-]
-  
 export default SocialAppContextProvider;
 
 // time stamp video 10:30

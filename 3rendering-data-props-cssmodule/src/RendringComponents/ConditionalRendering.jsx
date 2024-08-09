@@ -25,7 +25,7 @@ function RenderDataAsPerCondition() {
 
     return (
         <>
-        <h1>Daily Items</h1>  {/*<---- so here we show below solution in curly braces that becz of condtion i.e after this "h1" tag we need to apply this codition. But "if-else" solu didn't fuck about "Any codition" */}
+        <h1>Daily Items</h1>  {/*<---- so here we show below solution in curly braces that becz of condtion i.e after this "h1" tag we need to apply this codition. But "if-else" solu didn't fuck care about "Any codition" */}
 
         {
             MyItem.length===0 && <h3>I am 3rd logical Solution </h3>   // 3rd soln here <h3></h3> tag already true if "MyItem.length===0" also true then it show "Saman show kro" text along with above <h1></h1> else normal below data render.

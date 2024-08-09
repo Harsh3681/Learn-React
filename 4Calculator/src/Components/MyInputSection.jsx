@@ -10,7 +10,6 @@ const UserInput = ({inputValue}) =>{
             </div>
         </>
     )
-    
 }
 
 export default UserInput;

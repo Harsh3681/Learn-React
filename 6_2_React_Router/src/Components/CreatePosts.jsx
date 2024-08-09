@@ -2,56 +2,42 @@
 
 import { useContext, useRef } from "react";
 import { UserPostsByContext } from "../Store/User_Post_Store";
+import { Form, redirect, useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
-  const userIdElement = useRef();
-  const PostTitleElement = useRef();
-  const PostDescriptionElement = useRef();
-  const PostTagElement = useRef();
-  const PostReactionElement = useRef();
-
   const { CreatePost } = useContext(UserPostsByContext);
+  
 
-  const SubmitPostData = (e) => {
-    e.preventDefault();
-    const userIdData = userIdElement.current.value;
-    const PostTitleData = PostTitleElement.current.value;
-    const PostDescriptionData = PostDescriptionElement.current.value;
-    const PostTagData = PostTagElement.current.value.split(" ");
-    const PostReactionData = PostReactionElement.current.value;
-
-    userIdElement.current.value = "";
-    PostTitleElement.current.value = "";
-    PostDescriptionElement.current.value = "";
-    PostTagElement.current.value = "";
-    PostReactionElement.current.value = "";
-
-    CreatePost(userIdData, PostTitleData, PostDescriptionData, PostTagData, PostReactionData);
-  }
+  const SubmitPostData = () => {
+   
+    
+    
+  };
 
   return (
     <>
+      <div style={{"display": "flex", "justifyContent": "center", "alignItems": "center"}}>
       <div className="form-container ">
-        <form className="form" onSubmit={SubmitPostData}>
+        <Form method="POST" className="form" >
           <div className="form-group">
             <label htmlFor="email">User Id</label>
-            <input required="" name="text" id="email" type="text" ref={userIdElement} />
+            <input required id="email" type="text" name="userId" />
           </div>
           <div className="form-group">
             <label htmlFor="email">Post Title</label>
-            <input required="" name="text" id="email" type="text" ref={PostTitleElement} />
+            <input required id="email" type="text" name="title" />
           </div>
           <div className="form-group">
             <label htmlFor="textarea">Post Description</label>
-            <textarea required="" cols="50" rows="10" id="textarea" name="textarea" ref={PostDescriptionElement}></textarea>
+            <textarea required="" cols="50" rows="10" id="textarea" name="body"></textarea>
           </div>
           <div className="form-group">
             <label htmlFor="textarea">PostTags</label>
-            <input required="" name="text" id="email" type="text" ref={PostTagElement} />
+            <input required id="email" type="text" name="tags" />
           </div>
           <div className="form-group">
             <label htmlFor="textarea">Number Of Post Reaction</label>
-            <input required="" name="text" id="email" type="number" ref={PostReactionElement} />
+            <input required id="email" type="number" name="reactions" />
           </div>
 
           <button className="btn-18" type="submit">
@@ -59,10 +45,29 @@ const CreatePost = () => {
               <span className="text">Submit</span>
             </span>
           </button>
-        </form>
+        </Form>
+      </div>
       </div>
     </>
   );
 };
+
+export async function createPostAction(data) {    // async await
+  const formData = await data.request.formData();  //await
+  const postData = Object.fromEntries(formData); // here we will get our all data of "Form which we create using "name" attribute
+  postData.tags = postData.tags.split(" ");
+
+  fetch('https://dummyjson.com/posts/add', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(postData),
+  })
+  .then(res => res.json())
+  .then((data)=>{console.log("my data ",data)});
+  
+  // navigate("/");    // 👈👈👈  navigate to the path why to place it here becz on our form complete fill and wann post once post complete then will redirect to "/" <-- HOME
+ 
+  return redirect("/");     // 👈👈👈 same as "navigate"
+}
 
 export default CreatePost;

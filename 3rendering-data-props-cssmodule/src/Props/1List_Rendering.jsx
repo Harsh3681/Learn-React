@@ -3,7 +3,7 @@ import Peoples from "./1Peoples_Fun_For_List_Rendering"
 
 function List_Rendering()  {
 
-// 1st
+// 1st 
     // below approch to render the "simple" array
 
     // const names = ["jay", "Abhay", "Wirajay", "Parajay"]

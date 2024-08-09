@@ -14,7 +14,6 @@ const ArrayProductRen = ({ans}) =>{
                 )
             }
             </ul>
-
         </>
     )
 }

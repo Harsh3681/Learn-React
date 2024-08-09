@@ -26,11 +26,44 @@ const CreatePost = () => {
     PostTagElement.current.value = "";
     PostReactionElement.current.value = "";
 
-    CreatePost(userIdData, PostTitleData, PostDescriptionData, PostTagData, PostReactionData);
+
+    // function generateCustomID() {
+    //   const now = new Date();
+    //   const year = now.getFullYear();
+    //   const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    //   const date = String(now.getDate()).padStart(2, '0');
+    //   const hours = String(now.getHours()).padStart(2, '0');
+    //   const minutes = String(now.getMinutes()).padStart(2, '0');
+    //   const seconds = String(now.getSeconds()).padStart(2, '0');
+    //   const milliseconds = String(now.getMilliseconds()).padStart(3, '0');
+
+    //   const customID = `${date}${month}${year}${hours}${minutes}${seconds}${milliseconds}`;
+      
+    //   return customID;
+    // }
+    // const customID = generateCustomID();
+    
+
+    fetch('https://dummyjson.com/posts/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title : PostTitleData,
+        body : PostDescriptionData,
+        reactions : PostReactionData,
+        userId : userIdData,
+        tags : PostTagData,
+      })
+    })
+    .then(res => res.json())
+    .then((data)=>{console.log("my data ",data), CreatePost(data)});
+    
+    // CreatePost(userIdData, PostTitleData, PostDescriptionData, PostTagData, PostReactionData);
   }
 
   return (
     <>
+      <div style={{"display": "flex", "justifyContent": "center", "alignItems": "center"}}>
       <div className="form-container ">
         <form className="form" onSubmit={SubmitPostData}>
           <div className="form-group">
@@ -60,6 +93,7 @@ const CreatePost = () => {
             </span>
           </button>
         </form>
+      </div>
       </div>
     </>
   );

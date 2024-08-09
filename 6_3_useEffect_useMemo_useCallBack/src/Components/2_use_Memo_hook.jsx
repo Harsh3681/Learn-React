@@ -17,7 +17,7 @@ const MyuseMemo= () =>{
     const [count, setCount] = useState(0);
     const [dark, setDark] = useState(false);
 
-    function DoubleNumber(num){
+    function DoubleNumber(num){          // here "Wihout" useMemo funct
         return num*2;
     }
 
@@ -27,7 +27,6 @@ const MyuseMemo= () =>{
 
     const MyTheme = useMemo(()=>{
         return{
-
             backgroundColor : dark ? "black" : "white",
             color : dark ? "white" : "black"
         }
@@ -38,7 +37,7 @@ const MyuseMemo= () =>{
 //     color : dark ? "white" : "black"
 // }
     
-    useEffect(() =>{    // here it not only console.log on "changing theme", but also on "changing Num" that we don't need we need it only "console.log" on "MyTheme" so we need to "memoized" the "MyTheme" funct with "dependency" "dark"
+    useEffect(() =>{    // here it not only console.log on "changing theme", but also on "changing Num" that we don't need we need it. Now only "console.log" on "MyTheme" 👈 so we need to "memoized" the "MyTheme" funct with "dependency" "dark"
         console.log("Theme changed")
     },[MyTheme])
     
@@ -50,7 +49,8 @@ const MyuseMemo= () =>{
                 <br/>
                 <br/>
                 <button onClick={()=> setDark(justTry => !justTry)}>Change theme</button>    {/* "justTry" do here it already "true" convert into "False" */}
-                <div className="mythemeBox" style={MyTheme}>{myNum}</div>     {/* With "useMemo" */}
+                
+                <div className="mythemeBox" style={MyTheme}>{myNum}</div>     With "useMemo"
 
 {/* Without useMemo just Comment "myNum" funct and uncomment below 👇 */}
                 <div className="mythemeBox" style={MyTheme}>{DoubleNumber(count)}</div>     without "useMemo"

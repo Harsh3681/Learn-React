@@ -15,14 +15,15 @@ function App() {
   return (
     <>
       <SocialAppContextProvider>
-        
-          <AppSideBar getActive={getActive} setActive={setActive} />
+     
+        <AppSideBar getActive={getActive} setActive={setActive} />
+        <AppHeader/>
+
+        {getActive==="Home" ? <UserPostsList /> : <CreatePost />}
           
-          <div className="my-container">
-            <AppHeader/>
-            {getActive==="Home" ? <UserPostsList /> : <div style={{"display": "flex", "justify-content": "center", "align-items": "center"}}><CreatePost /></div>}
-            {/* <AppFooter /> */}
-          </div>
+        {/* <AppFooter /> */}
+  
+        
        
       </SocialAppContextProvider>   
       

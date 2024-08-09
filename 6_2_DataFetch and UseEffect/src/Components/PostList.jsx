@@ -1,22 +1,20 @@
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import UserPost from "./Posts";
-import { UserPostsByContext } from "../Store/User_Post_Store";
 import Message from "./Message";
+import Loading from "./LoadingUI";
+import { UserPostsByContext } from "../Store/User_Post_Store";
 
 
 const UserPostsList = () =>{
-    const {PostList, CreatePostByFetchingData} = useContext(UserPostsByContext);
-    const getPosts = ()=>{
-        // console.log("posts ahe")
-        fetch('https://dummyjson.com/posts')
-        .then(res => res.json())
-        .then((data)=>{CreatePostByFetchingData(data.posts)});
-    }
-    
+    const {PostList,fetching} = useContext(UserPostsByContext);
+   
     return(
-        <>
-            {PostList.length===0 && ( <Message getPosts={getPosts} /> )}
-            { PostList.map((item) => (<UserPost key={item.id} item={item}/>))}
+        <>  
+            
+            {fetching && <Loading />}
+            {!fetching && PostList.length===0 && ( <Message/> )}
+            <div className="row" style={{"marginLeft": "12rem","marginRight": "3rem"}}>{!fetching && PostList.map((item) => (<UserPost key={item.id} item={item}/>))}</div>
+            
         </>
     )
 }

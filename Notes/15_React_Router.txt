@@ -1,0 +1,45 @@
+
+
+install it first 
+
+1)  npm install react-router-dom     // dom becz web page package it is
+
+2)  In  ####### main.jsx ######## we need to import --->👉 import RouterProvider from "react-router-dom" 
+
+3) And use <RouterProvider/> Component Instead Of "<App/>"
+
+4) Also import #### createBrowserRouter() ####  --->👉 from "react-router-dom"
+    createBrowserRouter will take "array of Object" [{}] which include "individual object" {} containing path : "/" and element : <App/> <-- 👈 it is example
+
+------------------------------------------------------------------------------
+
+5) ######## For Share Component ######## Means with "Covered Path" i.e // here we try to defining "covering Path" means Atleast kept required components same for the page as per routes i.e (header, sidebar, footer) and then change the remaining components as per need.
+
+######## For Share Component ######## we need to first import {Outlet} from "react-router-dom"  👉👉👉 see in App.jsx
+
+----------------------
+
+6) ######## To prevent our component data re-rendering on each tab click we can use
+
+<Link><Link/> 👈 tags Instead of 👉 <a></a> anchor tag 👉👉👉  See in "SideBar.jsx" file
+ans 
+"to=" 👈 tags Instead of 👉 "href=" 
+
+----------------------
+
+7) ######## For Dynamic navigation ######## Means once click on some tab like on our web page---> Once submit form we wana "navigate come directlt to "HOME" tab" so to do that we use
+ 
+  👉 useNavigate 👈 hook    for navigate programmatically.
+
+See it in 👉👉👉 "CreatePost.jsx" at bottom in funct "createPostAction"
+
+----------------------
+
+8) ######## Submitting Data using 👉👉👉"action"👈👈👈 ########
+
+for we will convert <form></form> 👈👈👈 too 👉👉👉 <Form></Form>
+and 
+"ref" 👈👈👈 to 👉👉👉 "name" attribute
+
+See it in 👉👉👉 "CreatePost.jsx"
+

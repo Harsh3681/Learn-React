@@ -1,0 +1,11 @@
+
+👉👉👉 Props
+Pass data from a parent component to a child component, and are immutable and owned by the parent component. 
+Props are used to pass data and configuration, and are accessed using this.props or as function arguments.
+
+
+👉👉👉 State
+Manages local data storage that is specific to a component, and is mutable and owned by the component itself. 
+State is used to manage component-specific data and UI state changes, such as handling user input, 
+controlling UI behavior, and storing temporary data. State is accessed using this.state in class components
+or via state hooks in functional components. 
