@@ -28,7 +28,7 @@ const toDoItemReducer = (currStateTodoItem, action) =>{ // it take "action" obj 
   return newToItems;
 }
 
-// below 👇
+// below 👇 our main component
 
 const MyTodoItemsContextProvider = ({children}) =>{
 

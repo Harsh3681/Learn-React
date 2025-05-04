@@ -1,0 +1,14 @@
+
+recoil website 👇👇👇👇
+
+https://recoiljs.org/docs/introduction/getting-started/
+
+we need to first install recoil. 👇👇👇👇
+
+npm install recoil
+
+And if not able to install then 👉👉 Forcefully we need to install
+
+npm install recoil -f
+
+

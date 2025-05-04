@@ -1,0 +1,54 @@
+
+recoil website 👇👇👇👇
+
+https://recoiljs.org/docs/introduction/getting-started/
+
+we need to first install recoil. 👇👇👇👇
+
+npm install recoil
+
+And if not able to install then 👉👉 Forcefully we need to install
+
+npm install recoil -f
+
+------------------------------------------------------------------------------
+
+// 👉👉👉👉 2 things we have.
+
+1) Atom 2) Selector
+
+1) Atom
+
+    i) useRecoilState   👈 same as useState(); and use to get both 👉 count, setCount <-- variable and setter funct
+
+        --> const [count, setCount] = useRecoilState(<get_from_atoms_store_folder_where_we_define_our_atoms>)
+
+    ii) useRecoilValue 👈 use to get only value(variable) Ex.👉 count   // see in CountComponent.jsx file
+
+        --> const count = useRecoilValue(<get_from_atoms_store_folder_where_we_define_our_atoms>);
+
+    iii) useSetRecoilState 👈 use to get only setter funct Ex.👉 setCount   // see in increseCount.jsx or increseCount.jsx file
+
+        --> const setCount = useSetRecoilState(<get_from_atoms_store_folder_where_we_define_our_atoms>);
+
+
+2) Selector
+
+    i) A 👉"selector" represents a 👉 "piece of derived state", means we can think as it is👉 "output" of an
+        passing 👉 "state" to 👉 "pure function" // here below "passing state" is👉 "textState"
+
+EX.
+
+    const charCountState = selector({
+        key: 'charCountState', 
+        get: (props) => {
+            const text = props.get(textState); // "textState" we reciece from atom it is name of atom we define
+            
+            return text.length;  // and here "length" is 👉 "pure function"
+        },
+    });
+
+
+
+
+

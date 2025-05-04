@@ -1,0 +1,9 @@
+
+
+we also need to install the tailwind css for shadcn
+
+https://ui.shadcn.com/docs/installation/vite
+
+if we got error ❌ 👇 resolve by following link
+
+https://ui.shadcn.com/docs/installation/vite

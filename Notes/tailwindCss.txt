@@ -1,0 +1,22 @@
+
+https://tailwindcss.com/docs/guides/vite
+👆👆👆👆👆 go to docs
+
+while follow above documentation use 👇👇👇
+
+1) in ---> tailwind.config.js file in content array ---> use App.jsx or App.tsx
+
+2) And add below containt in 👇👇👇👇 App.css file.
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+
+
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+
+

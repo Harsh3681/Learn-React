@@ -1,0 +1,22 @@
+
+.forIntroLine{
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+.forCard{
+    display: flex;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+.insideCard{
+    width: 400px;
+    padding: 20px;
+}
+
+.forMyButton, .forCount{
+    display: flex;
+    justify-content: space-between;
+}

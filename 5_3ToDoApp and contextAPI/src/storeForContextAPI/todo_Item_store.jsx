@@ -7,7 +7,7 @@ export const TodoItemsByContext = createContext({
     TodoData : [], // becz it "TodoData" is "Array"
     AddNewItem : () => {},  // becz "AddNewItem" is one method hence pass "empty" method same below 👇
     DeleteItem : () => {},
-  });     // "TodoItems" we use at multiple place as component hence decleraed it in Camel case
+});     // "TodoItems" we use at multiple place as component hence decleraed it in Camel case
 
 
 

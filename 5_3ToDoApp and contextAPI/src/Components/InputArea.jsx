@@ -8,7 +8,7 @@ const PutInput = () =>{
 // const myTodoItemsData = MyContextObj.TodoData;
 
     // instead of above line we can do "Obj destructuring" se below --> {TodoData}
-    const {AddNewItem} = useContext(TodoItemsByContext);  // here use "useContext"
+    const {AddNewItem} = useContext(TodoItemsByContext);  //👉 here "TodoItemsByContext" is act as "father" and "AddNewItem" is child and to access something from father we need to to go throught "useContext"
     
     const [isButtonDisabled, setButtonDisabled] = useState(true);
     const refTodoNameElement = useRef();
@@ -18,6 +18,8 @@ const PutInput = () =>{
         e.preventDefault(); 
         const todoName = refTodoNameElement.current.value;
         const todoDate = refTodoDateElement.current.value;
+        console.log("ans1 ",todoName)
+
         refTodoNameElement.current.value = "";
         refTodoDateElement.current.value = "";
         AddNewItem(todoName,todoDate) // here we use "{AddNewItem}"
@@ -27,14 +29,18 @@ const PutInput = () =>{
     const checkButtonState = () => {    // useEffect and this funct for the "Button Disablity" purpose.
         const todoName = refTodoNameElement.current.value;
         const todoDate = refTodoDateElement.current.value;
-        setButtonDisabled(!(todoName && todoDate));
+        setButtonDisabled(()=>{
+            return (todoName && todoDate) ? false : true; // if "false" then button enable.
+        }) 
+// OR
+        // setButtonDisabled(!(todoName && todoDate));
     };
 
     useEffect(() => {
         const todoNameInput = refTodoNameElement.current;
         const todoDateInput = refTodoDateElement.current;
-
-        todoNameInput.addEventListener('input', checkButtonState);
+        console.log("ans2 ",todoNameInput);
+        todoNameInput.addEventListener('input', checkButtonState);  // here "addEventListener" is js inbuild and "input" also. 👉 when "todoNameInput" will get "input" by user we trigger the "checkButtonState" 👈funct
         todoDateInput.addEventListener('input', checkButtonState);
 
         return () => {
@@ -45,7 +51,6 @@ const PutInput = () =>{
 
     return(
         <>
-
             <form className="row g-5 mb-4 align-items-center"  onSubmit ={setForParent}>
                 {/* <form className="row g-5 mb-4 align-items-center"> */}
                 <div className="col-12 col-md">

@@ -1,0 +1,36 @@
+
+// see in folder 👉👉👉  "5_3ContextProvider_&_recoil"
+ where we use an "materialUI" librabry also
+
+
+install as 👉👉👉   npm install recoil
+
+import {                // 👈👈👈 way to imoport it
+  RecoilRoot,
+  atom,
+  selector,
+  useRecoilState,
+  useRecoilValue,
+} from 'recoil';
+
+👇👇👇👇  way to use it 
+
+function App() {
+  return (
+    <RecoilRoot>        // 👈👈 need to wrap around all Componet
+      <MyComponet />
+    </RecoilRoot>
+  );
+}
+
+Instead of 👉 useState we use "atom"
+
+Ex. const [count, setCount] = useState(0) 👇👇  below we do same by 👉 "atom"
+
+const setCount = atom({
+  key: 'setCount',         // 👈 unique ID (with respect to other atoms/selectors)
+  default: 0,              // 👈 default value (aka initial value)
+});
+
+ ☝️☝️ declered it in App.jsx outside the 👉 "App()" component
+ Or in new file.
